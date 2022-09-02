@@ -10,9 +10,9 @@
 
 ### **_Description_**
 
-#### A workout app used .
+#### A workout app used for planning and tracking all of your exercises. 
 
-#### [Component Hierarchy Diagram]()
+#### [Component Hierarchy Diagram](https://i.imgur.com/TluSKRk.png)
 
 #### [Entity Relationship Diagram]()
 
@@ -38,7 +38,7 @@
 
 ### **_Tasks With Trello_**
 
-#### A Trello board was used to keep track of development progress and can be viewed [here!]()
+#### A Trello board was used to keep track of development progress and can be viewed [here!](https://trello.com/b/rELp3eoV/workout-tracker-app)
 
 ---
 
