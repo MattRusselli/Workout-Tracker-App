@@ -20,7 +20,7 @@
 
 ### **_Technologies Used_**
 
-- PostgreSQL
+- PostgreSQL/Django (Python)
 - Express
 - React JS
   - Axios for the API call
