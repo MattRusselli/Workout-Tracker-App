@@ -12,9 +12,9 @@
 
 #### A workout app used for planning and tracking all of your exercises. 
 
-#### [Component Hierarchy Diagram](https://i.imgur.com/TluSKRk.png)
+#### [Component Hierarchy Diagram]()
 
-#### [Entity Relationship Diagram]()
+#### [Entity Relationship Diagram](https://i.imgur.com/TluSKRk.png)
 
 ---
 
