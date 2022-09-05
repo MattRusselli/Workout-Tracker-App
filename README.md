@@ -38,7 +38,7 @@
 
 ### **_Tasks With Trello_**
 
-#### A Trello board was used to keep track of development progress and can be viewed [here!](https://trello.com/b/rELp3eoV/workout-tracker-app)
+#### A trello board was used to keep track of development progress and can be viewed [here!](https://trello.com/b/rELp3eoV/workout-tracker-app)
 
 ---
 
