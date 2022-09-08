@@ -48,6 +48,14 @@ const SignIn = (props) => {
           <button disabled={!formValues.username || !formValues.password}>
             Sign In
           </button>
+          <button
+            className="submit-btn reg-btn"
+            onClick={() => {
+              navigate('/register')
+            }}
+          >
+            Register Here!
+          </button>
         </form>
       </div>
     </div>

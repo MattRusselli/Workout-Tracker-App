@@ -41,7 +41,7 @@ const Register = () => {
               onChange={handleChange}
               name="email"
               type="email"
-              placeholder="example@example.com"
+              placeholder="Jsmith@email.com"
               value={formValues.email}
               required
             />
@@ -54,6 +54,28 @@ const Register = () => {
               type="text"
               placeholder="Jsmith95"
               value={formValues.username}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              onChange={handleChange}
+              name="firstName"
+              type="text"
+              placeholder="John"
+              value={formValues.firstName}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              onChange={handleChange}
+              name="lastName"
+              type="text"
+              placeholder="Smith"
+              value={formValues.lastName}
               required
             />
           </div>
@@ -86,7 +108,7 @@ const Register = () => {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Sign In
+            Sign up
           </button>
         </form>
       </div>
