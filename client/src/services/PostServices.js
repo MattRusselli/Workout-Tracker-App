@@ -1,6 +1,6 @@
 import Client from './api'
 
-export const GetPosts = async (userId) => {
+export const GetPosts = async () => {
   try {
     const res = await Client.get(`/schedules/`)
     return res.data

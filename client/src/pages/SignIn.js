@@ -16,7 +16,7 @@ const SignIn = (props) => {
     setFormValues({ username: '', password: '' })
     props.setUser(payload)
     props.toggleAuthenticated(true)
-    navigate('/feed')
+    navigate('/schedules')
   }
 
   return (
@@ -29,7 +29,7 @@ const SignIn = (props) => {
               onChange={handleChange}
               name="username"
               type="username"
-              placeholder="example@example.com"
+              placeholder="Jsmith95"
               value={formValues.username}
               required
             />
@@ -40,6 +40,7 @@ const SignIn = (props) => {
               onChange={handleChange}
               type="password"
               name="password"
+              placeholder="••••••••••"
               value={formValues.password}
               required
             />

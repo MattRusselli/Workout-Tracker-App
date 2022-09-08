@@ -16,6 +16,8 @@
 
 #### [Entity Relationship Diagram](https://i.imgur.com/TluSKRk.png)
 
+#### [Backend](https://github.com/MattRusselli/Workout-Tracker-App-Backend-Sequelize)
+
 ---
 
 ### **_Technologies Used_**

@@ -53,7 +53,7 @@ function App() {
           />
           <Route path="/register" element={<Register />} />
           <Route
-            path="/feed"
+            path="/schedules"
             element={<Feed user={user} authenticated={authenticated} />}
           />
         </Routes>

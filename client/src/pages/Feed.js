@@ -10,6 +10,7 @@ const Feed = ({ user, authenticated }) => {
     const handlePosts = async () => {
       const data = await GetPosts()
       setPosts(data)
+      console.log(data)
     }
     handlePosts()
   }, [])

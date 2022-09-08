@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 const Nav = ({ authenticated, user, handleLogOut }) => {
   let authenticatedOptions
   if (user) {
+    // console.log(user)
     authenticatedOptions = (
       <nav>
         <h3>Welcome {user.username}!</h3>
-        <Link to="/schedule">Feed</Link>
+        <Link to="/schedules">Schedule</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
