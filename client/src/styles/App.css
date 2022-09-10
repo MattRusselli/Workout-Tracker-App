@@ -70,19 +70,22 @@ main {
   justify-content: center;
 }
 
-.home-container img {
-  max-width: 80%;
-  margin: 0 auto;
+.create-schedule {
+  align-items: center;
+  justify-content: center;
 }
 
-.home-container button {
+.home-container,
+.create-schedule,
+button {
   padding: 0.8em 1.2em;
   background-color: var(--primary-bg);
   color: var(--link-color-secondary);
   font-size: 1.1rem;
 }
 
-.home-container button:hover {
+.home-container .create-schedule,
+button:hover {
   transform: scale(1.1);
   background-color: var(--primary-button-hover);
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);

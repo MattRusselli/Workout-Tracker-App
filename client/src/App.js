@@ -7,7 +7,10 @@ import Nav from './components/Nav'
 import Home from './components/Home'
 import Register from './pages/Register'
 import SignIn from './pages/SignIn'
-import Feed from './pages/Feed'
+import Schedule from './pages/Schedule'
+import CreateSchedule from './pages/CreateSchedule'
+import Day from './pages/Day'
+import CreateDays from './pages/CreateDays'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -54,7 +57,21 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route
             path="/schedules"
-            element={<Feed user={user} authenticated={authenticated} />}
+            element={<Schedule user={user} authenticated={authenticated} />}
+          />
+          <Route
+            path="/schedules/create"
+            element={
+              <CreateSchedule user={user} authenticated={authenticated} />
+            }
+          />
+          <Route
+            path="/schedules/days"
+            element={<Day user={user} authenticated={authenticated} />}
+          />
+          <Route
+            path="/schedules/days/create"
+            element={<CreateDays user={user} authenticated={authenticated} />}
           />
         </Routes>
       </main>

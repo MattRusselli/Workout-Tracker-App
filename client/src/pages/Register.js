@@ -7,6 +7,8 @@ const Register = () => {
   const [formValues, setFormValues] = useState({
     email: '',
     username: '',
+    firstName: '',
+    lastName: '',
     password: '',
     confirmPassword: ''
   })
@@ -20,15 +22,23 @@ const Register = () => {
     await RegisterUser({
       email: formValues.email,
       username: formValues.username,
+      firstName: formValues.firstName,
+      lastName: formValues.lastName,
       password: formValues.password
     })
     setFormValues({
       email: '',
       username: '',
+      firstName: '',
+      lastName: '',
       password: '',
       confirmPassword: ''
     })
-    navigate('/signin')
+    if (formValues.password !== formValues.confirmPassword) {
+      alert('Passwords do not match! Please try again!')
+    } else {
+      navigate('/signin')
+    }
   }
 
   return (
