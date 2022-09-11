@@ -1,8 +1,8 @@
 import Client from './api'
 
-export const GetSchedules = async () => {
+export const GetSchedules = async (userId) => {
   try {
-    const res = await Client.get(`/schedules/`)
+    const res = await Client.get(`/schedules/${userId}`)
     return res.data
   } catch (error) {
     throw error

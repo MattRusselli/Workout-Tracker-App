@@ -7,25 +7,20 @@ import { handleSubmit, handleDelete, handleUpdate } from '../services/Days.js'
 const CreateDay = ({ user, authenticated }) => {
   let navigate = useNavigate()
   const [dayOfWeek, setDayOfWeek] = useState('')
-  const [dateOfWeek, setDateOfWeek] = useState('')
 
   const handleSubmitDay = async (e) => {
     e.preventDefault()
     await handleSubmit(user.id, {
-      dayOfWeek,
-      dateOfWeek
+      dayOfWeek
     })
     navigate('/schedules/days')
     setDayOfWeek()
-    setDateOfWeek()
   }
   return user && authenticated ? (
     <div className="grid col-4">
       <NewDayForm
         dayOfWeek={dayOfWeek}
         setDayOfWeek={setDayOfWeek}
-        dateOfWeek={dateOfWeek}
-        setDateOfWeek={setDateOfWeek}
         handleSubmitDay={handleSubmitDay}
       />
     </div>

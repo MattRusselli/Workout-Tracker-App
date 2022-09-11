@@ -16,18 +16,6 @@ const NewDayForm = (props) => {
             required
           />
         </div>
-        <div className="title-wrapper">
-          <label htmlFor="dateOfWeek"> </label>
-          <input
-            className="title-input"
-            onChange={(e) => props.setDateOfWeek(e.target.value)}
-            type="text"
-            id="dateOfWeek"
-            placeholder="9/10/22"
-            value={props.dateOfWeek}
-            required
-          />
-        </div>
         <button type="submit" className="submit-btn">
           Create
         </button>

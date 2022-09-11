@@ -1,32 +1,78 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import NewSheduleForm from '../components/NewSheduleForm.jsx'
-import {
-  handleSubmit,
-  handleDelete,
-  handleUpdate
-} from '../services/Schedules.js'
+import axios from 'axios'
 
 const CreateSchedule = ({ user, authenticated }) => {
   let navigate = useNavigate()
-  const [scheduleName, setScheduleName] = useState('')
+  const userId = user.id
+  const [formValues, setFormValues] = useState({
+    scheduleName: '',
+    userId: user.id
+  })
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const newSchedule = async (data) => {
+    const res = await axios.post(
+      `http://localhost:3001/schedules/${userId}`,
+      data
+    )
+    console.log(res.data)
+  }
 
   const handleSubmitSchedule = async (e) => {
     e.preventDefault()
-    await handleSubmit(user.id, {
-      scheduleName
-    })
+    let data = { scheduleName: formValues.scheduleName, userId: user.id }
+    newSchedule(data)
+    setFormValues({ scheduleName: '', userId: user.id })
     navigate('/schedules')
-    setScheduleName()
   }
+
+  const handleUpdate = async (userId, scheduleName) => {
+    try {
+      const res = await axios.put(
+        `http://localhost:3001/schedules/${user.id}`,
+        {
+          userId,
+          scheduleName
+        }
+      )
+      return res.data
+    } catch (error) {
+      throw error
+    }
+  }
+
   return user && authenticated ? (
-    <div className="grid col-4">
-      <NewSheduleForm
-        scheduleName={scheduleName}
-        setScheduleName={setScheduleName}
-        handleSubmitSchedule={handleSubmitSchedule}
-      />
+    <div>
+      <form onSubmit={handleSubmitSchedule}>
+        <div className="title-wrapper">
+          <label htmlFor="scheduleName"> </label>
+          <input
+            className="title-input"
+            onChange={handleChange}
+            type="text"
+            id="scheduleName"
+            placeholder="Schedule Name"
+            value={formValues.scheduleName}
+            name="scheduleName"
+            required
+          />
+        </div>
+        <button type="submit" className="submit-btn">
+          Create
+        </button>
+      </form>
+      <button
+        onClick={() => {
+          handleUpdate(userId)
+        }}
+      >
+        Update
+      </button>
     </div>
   ) : (
     <div className="protected">

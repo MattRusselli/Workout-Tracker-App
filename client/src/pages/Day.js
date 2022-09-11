@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import { GetDays } from '../services/Days'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const Day = ({ user, authenticated }) => {
+const Day = ({ user, authenticated, schedule }) => {
   let navigate = useNavigate()
+  const { dayId } = useParams()
   const [Days, setDays] = useState([])
 
   useEffect(() => {
     const handleDays = async () => {
-      const data = await GetDays()
+      const data = await GetDays(schedule.id)
       setDays(data)
     }
     handleDays()
@@ -25,7 +26,7 @@ const Day = ({ user, authenticated }) => {
         {Days.map((day) => (
           <div className="card" key={day.id}>
             <div>
-              <button onClick={() => navigate('/schedules/days/exercieses')}>
+              <button onClick={() => navigate(`/schedules/days/exercises`)}>
                 {day.dayOfWeek}
               </button>
             </div>
