@@ -1,19 +1,47 @@
 import { useEffect, useState } from 'react'
 import { GetDays } from '../services/Days'
 import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
 
-const Day = ({ user, authenticated, schedule }) => {
+const Day = ({ user, authenticated }) => {
   let navigate = useNavigate()
-  const { dayId } = useParams()
-  const [Days, setDays] = useState([])
+  const [days, setDays] = useState([])
+  const [scheduleId, setScheduleId] = useState([])
+
+  useEffect(() => {
+    const getScheduleId = async () => {
+      const data = await axios.get(`http://localhost:3001/users/${user.id}`)
+      console.log(data.data.Schedules)
+      setScheduleId(data.data.Schedules[0].id)
+    }
+    getScheduleId()
+  }, [])
 
   useEffect(() => {
     const handleDays = async () => {
-      const data = await GetDays(schedule.id)
+      const data = await GetDays(scheduleId)
       setDays(data)
     }
     handleDays()
   }, [])
+
+  const handleDelete = async (id) => {
+    const res = await axios
+      .delete(`http://localhost:3001/days/${id}`)
+      .catch((error) => console.log(error))
+    console.log(res.data)
+  }
+
+  const deleteDay = async (item) => {
+    let index = days.indexOf(item)
+    let temp = [...days]
+    temp.splice(index, 1)
+    setDays(temp)
+  }
+
+  const updateDays = (day) => {
+    navigate('/schedules/days/update', { state: { day: day } })
+  }
 
   return user && authenticated ? (
     <div className="day-page">
@@ -23,13 +51,29 @@ const Day = ({ user, authenticated, schedule }) => {
         </button>
       </div>
       <div className="grid col-4">
-        {Days.map((day) => (
+        {days.map((day) => (
           <div className="card" key={day.id}>
             <div>
               <button onClick={() => navigate(`/schedules/days/exercises`)}>
                 {day.dayOfWeek}
               </button>
             </div>
+            <button
+              onClick={() => {
+                const answer = window.confirm(
+                  'Are you sure you want to delete this day?'
+                )
+                if (answer) {
+                  handleDelete(day.id)
+                  deleteDay(day)
+                } else {
+                  return
+                }
+              }}
+            >
+              Delete
+            </button>
+            <button onClick={() => updateDays(day)}>Update</button>
           </div>
         ))}
       </div>

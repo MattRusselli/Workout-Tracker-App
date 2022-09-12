@@ -1,8 +1,8 @@
 import Client from './api'
 
-export const GetDays = async () => {
+export const GetDays = async (scheduleId) => {
   try {
-    const res = await Client.get(`/days/`)
+    const res = await Client.get(`/days/${scheduleId}`)
     return res.data
   } catch (error) {
     throw error
@@ -27,10 +27,10 @@ export const handleDelete = async (scheduleId) => {
   }
 }
 
-export const handleUpdate = async (scheduleId, scheduleName) => {
+export const handleUpdate = async (scheduleId, dayOfWeek) => {
   try {
     const res = await Client.put(`/days/${scheduleId}`, {
-      scheduleName
+      dayOfWeek
     })
     return res.data
   } catch (error) {

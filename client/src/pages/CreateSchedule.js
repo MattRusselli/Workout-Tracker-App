@@ -31,21 +31,6 @@ const CreateSchedule = ({ user, authenticated }) => {
     navigate('/schedules')
   }
 
-  const handleUpdate = async (userId, scheduleName) => {
-    try {
-      const res = await axios.put(
-        `http://localhost:3001/schedules/${user.id}`,
-        {
-          userId,
-          scheduleName
-        }
-      )
-      return res.data
-    } catch (error) {
-      throw error
-    }
-  }
-
   return user && authenticated ? (
     <div>
       <form onSubmit={handleSubmitSchedule}>
@@ -66,13 +51,6 @@ const CreateSchedule = ({ user, authenticated }) => {
           Create
         </button>
       </form>
-      <button
-        onClick={() => {
-          handleUpdate(userId)
-        }}
-      >
-        Update
-      </button>
     </div>
   ) : (
     <div className="protected">

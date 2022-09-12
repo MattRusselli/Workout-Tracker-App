@@ -14,6 +14,7 @@ import Day from './pages/Day'
 import CreateDays from './pages/CreateDays'
 import Exercise from './pages/Exercise'
 import CreateExercises from './pages/CreateExercises'
+import UpdateDay from './pages/UpdateDay'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -81,6 +82,10 @@ function App() {
           <Route
             path="/schedules/days/create"
             element={<CreateDays user={user} authenticated={authenticated} />}
+          />
+          <Route
+            path="/schedules/days/update"
+            element={<UpdateDay user={user} authenticated={authenticated} />}
           />
           <Route
             path="/schedules/days/exercises"
