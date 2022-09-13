@@ -12,9 +12,10 @@ import CreateSchedule from './pages/CreateSchedule'
 import UpdateSchedule from './pages/UpdateSchedule'
 import Day from './pages/Day'
 import CreateDays from './pages/CreateDays'
+import UpdateDay from './pages/UpdateDay'
 import Exercise from './pages/Exercise'
 import CreateExercises from './pages/CreateExercises'
-import UpdateDay from './pages/UpdateDay'
+import UpdateExercise from './pages/UpdateExercise'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -95,6 +96,12 @@ function App() {
             path="/schedules/days/exercises/create"
             element={
               <CreateExercises user={user} authenticated={authenticated} />
+            }
+          />
+          <Route
+            path="/schedules/days/exercises/update"
+            element={
+              <UpdateExercise user={user} authenticated={authenticated} />
             }
           />
         </Routes>

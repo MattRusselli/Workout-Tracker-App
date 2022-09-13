@@ -13,7 +13,7 @@ const Schedule = ({ user, authenticated }) => {
       setSchedules(data)
     }
     handleSchedules()
-  }, [])
+  }, [user.id])
 
   const handleDelete = async (id) => {
     const res = await axios
@@ -28,6 +28,7 @@ const Schedule = ({ user, authenticated }) => {
     temp.splice(index, 1)
     setSchedules(temp)
   }
+  console.log(schedules)
 
   const updateSchedule = (schedule) => {
     navigate('/schedules/update', { state: { schedule: schedule } })

@@ -25,7 +25,7 @@ const CreateDay = ({ user, authenticated }) => {
     getScheduleId()
   }, [])
 
-  console.log(scheduleId)
+  // console.log(scheduleId)
 
   const newDay = async (data) => {
     const res = await axios.post(

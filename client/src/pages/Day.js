@@ -11,7 +11,7 @@ const Day = ({ user, authenticated }) => {
   useEffect(() => {
     const getScheduleId = async () => {
       const data = await axios.get(`http://localhost:3001/users/${user.id}`)
-      console.log(data.data.Schedules)
+      // console.log(data.data.Schedules)
       setScheduleId(data.data.Schedules[0].id)
     }
     getScheduleId()
