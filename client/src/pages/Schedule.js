@@ -28,7 +28,6 @@ const Schedule = ({ user, authenticated }) => {
     temp.splice(index, 1)
     setSchedules(temp)
   }
-  console.log(schedules)
 
   const updateSchedule = (schedule) => {
     navigate('/schedules/update', { state: { schedule: schedule } })

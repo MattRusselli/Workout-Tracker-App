@@ -3,6 +3,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
+import { Box } from '@mui/material'
 import Nav from './components/Nav'
 import Home from './components/Home'
 import Register from './pages/Register'
@@ -16,6 +17,8 @@ import UpdateDay from './pages/UpdateDay'
 import Exercise from './pages/Exercise'
 import CreateExercises from './pages/CreateExercises'
 import UpdateExercise from './pages/UpdateExercise'
+import ExerciseDetail from './pages/ExerciseDetail'
+import ExercisePage from './pages/ExercisePage'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -60,6 +63,8 @@ function App() {
             }
           />
           <Route path="/register" element={<Register />} />
+          <Route path="/exercise" element={<ExercisePage />} />
+          <Route path="/exercise/:id" element={<ExerciseDetail />} />
           <Route
             path="/schedules"
             element={<Schedule user={user} authenticated={authenticated} />}
