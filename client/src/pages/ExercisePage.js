@@ -7,6 +7,7 @@ import { useState } from 'react'
 const ExercisePage = () => {
   const [bodyPart, setbodyPart] = useState('all')
   const [exercises, setExercises] = useState([])
+
   return (
     <Box>
       <SearchExercises
