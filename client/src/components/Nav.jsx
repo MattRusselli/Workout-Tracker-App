@@ -1,33 +1,33 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
   let authenticatedOptions
   if (user) {
     // console.log(user)
     authenticatedOptions = (
-      <nav>
+      <nav className="navbar">
         <h3>Welcome {user.username}!</h3>
-        <Link to="/schedules">Schedule</Link>
-        <Link to="/exercise">Exercises</Link>
-        <Link onClick={handleLogOut} to="/">
+        <NavLink to="/schedules">Schedule</NavLink>
+        <NavLink to="/exercise">Exercises</NavLink>
+        <NavLink onClick={handleLogOut} to="/">
           Sign Out
-        </Link>
+        </NavLink>
       </nav>
     )
   }
 
   const publicOptions = (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/exercise">Exercises</Link>
-      <Link to="/register">Register</Link>
-      <Link to="/signin">Sign In</Link>
+    <nav className="navbar">
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/exercise">Exercises</NavLink>
+      <NavLink to="/register">Register</NavLink>
+      <NavLink to="/signin">Sign In</NavLink>
     </nav>
   )
 
   return (
     <header>
-      <Link to="/"></Link>
+      <NavLink to="/"></NavLink>
       {authenticated && user ? authenticatedOptions : publicOptions}
     </header>
   )

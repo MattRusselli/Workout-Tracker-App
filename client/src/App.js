@@ -19,6 +19,7 @@ import CreateExercises from './pages/CreateExercises'
 import UpdateExercise from './pages/UpdateExercise'
 import ExerciseDetail from './pages/ExerciseDetail'
 import ExercisePage from './pages/ExercisePage'
+import Footer from './components/Footer'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -45,11 +46,13 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Nav
-        authenticated={authenticated}
-        user={user}
-        handleLogOut={handleLogOut}
-      />
+      <div>
+        <Nav
+          authenticated={authenticated}
+          user={user}
+          handleLogOut={handleLogOut}
+        />
+      </div>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -111,6 +114,9 @@ function App() {
           />
         </Routes>
       </main>
+      <div>
+        <Footer />
+      </div>
     </div>
   )
 }

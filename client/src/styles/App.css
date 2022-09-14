@@ -47,9 +47,14 @@ nav h3 {
   transition: all 0.2s ease;
 }
 
-nav a:hover {
-  color: var(--link-color-secondary);
-  text-decoration-color: var(--link-color-primary);
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  background-color: red;
+  padding: 1em;
+  min-height: 2em;
+  display: flex;
+  justify-content: flex-end;
 }
 
 main {
@@ -92,7 +97,6 @@ button:hover {
 }
 
 .card-overlay {
-  /* border: 2px solid var(--primary-button-hover); */
   width: 60%;
   padding: 1em;
   border-radius: 8px;
@@ -176,4 +180,8 @@ form button:disabled {
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+
+.homePage {
+  text-align: center;
 }
